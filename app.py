@@ -1,5 +1,5 @@
 """
-subaru.py — Dashboard ejecutivo del Sistema de Análisis Financiero para Aseguradoras
+asubaru.py — Dashboard ejecutivo del Sistema de Análisis Financiero para Aseguradoras
 Ejecutar:  streamlit run subaru.py
 
 Flujo:
