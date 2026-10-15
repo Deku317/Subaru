@@ -511,7 +511,7 @@ def clasificar(texto: str) -> str:
 
 
 def _tarjetas(res: Resultado) -> None:
-    iconos = {"error": "!", "warning": "⚠️", "success": "✅", "info": "ℹ️"}
+    iconos = {"error": "🚨", "warning": "⚠️", "success": "✅", "info": "ℹ️"}
     if not res.diagnosticos:
         st.info("El análisis no devolvió diagnósticos de texto.")
     for categoria, texto in res.diagnosticos:
