@@ -29,7 +29,7 @@ from analisis import AnalizadorFinanciero
 
 st.set_page_config(
     page_title="Análisis Financiero · Aseguradoras",
-    page_icon="📊",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -297,7 +297,7 @@ def render_sidebar() -> tuple[dict | None, dict | None]:
 
         st.success(f"✅ {archivo.name}")
         st.divider()
-        st.subheader("🧪 Simulador (What-If)")
+        st.subheader("Simulador (What-If)")
         st.caption("Modifica los valores y todo el dashboard se recalcula al instante.")
 
         entradas: dict[str, float] = {}
@@ -332,7 +332,7 @@ def render_sidebar() -> tuple[dict | None, dict | None]:
         # El explorador (sensibilidad / mapa 2D) recalcula escenarios con los mismos criterios
         st.session_state["cfg_escenario"] = (escalar, propagar)
 
-        with st.expander("🎨 Opciones de gráficas"):
+        with st.expander("Opciones de gráficas"):
             st.selectbox("Tema de gráficas", TEMAS, key="tema_graficas")
             st.slider("Altura del explorador (px)", 300, 800, 450, step=25, key="altura_explorador")
 
@@ -511,7 +511,7 @@ def clasificar(texto: str) -> str:
 
 
 def _tarjetas(res: Resultado) -> None:
-    iconos = {"error": "🚨", "warning": "⚠️", "success": "✅", "info": "ℹ️"}
+    iconos = {"error": "!", "warning": "⚠️", "success": "✅", "info": "ℹ️"}
     if not res.diagnosticos:
         st.info("El análisis no devolvió diagnósticos de texto.")
     for categoria, texto in res.diagnosticos:
@@ -537,7 +537,7 @@ def render_insights(real: Resultado, sim: Resultado) -> None:
 # DETALLE
 # ─────────────────────────────────────────────────────────────────────────────
 def render_detalle(datos_real: dict, datos_sim: dict, real: Resultado, sim: Resultado) -> None:
-    with st.expander("📋 Detalle completo: 20 razones y cuentas extraídas"):
+    with st.expander("Detalle completo: 20 razones y cuentas extraídas"):
         tab_r, tab_c = st.tabs(["Razones financieras", "Cuentas extraídas"])
         with tab_r:
             filas = []
@@ -973,7 +973,7 @@ def tab_mapa2d(datos_real: dict, datos_sim: dict, altura: int) -> None:
 
 
 def render_explorador(datos_real: dict, datos_sim: dict, real: Resultado, sim: Resultado) -> None:
-    st.subheader("🔬 Explorador avanzado")
+    st.subheader("Explorador avanzado Otto")
     st.caption("Construye tus propias vistas y analiza el comportamiento de las razones con más herramientas. "
                "Cada gráfica incluye la barra de Plotly para hacer zoom, filtrar series o descargar PNG.")
     altura = st.session_state.get("altura_explorador", 450)
@@ -1023,7 +1023,7 @@ def render_descargas(datos_real: dict, datos_sim: dict, real: Resultado, sim: Re
 # ─────────────────────────────────────────────────────────────────────────────
 def main() -> None:
     st.markdown(CSS, unsafe_allow_html=True)
-    st.title("📊 Análisis Financiero para Aseguradoras")
+    st.title("Analizador E.M.I.L.I.A.")
     st.caption("Sube un estado financiero en PDF, simula escenarios y revisa el impacto en tiempo real.")
 
     datos_real, datos_sim = render_sidebar()
